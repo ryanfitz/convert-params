@@ -6,8 +6,20 @@ convert query string to desired types
 Install the module with: `npm install convert-params`
 
 ```javascript
-var convert_params = require('convert-params');
-convert_params.awesome(); // "awesome"
+var convertParams = require('convert-params');
+var Joi = require('joi');
+
+var config = {
+  a: Joi.types.Number(),
+  b: Joi.types.Boolean(),
+  c: Joi.types.String()
+};
+
+var converted = convertParams({a: '1', b: 'true', c: 'Hello'}, config);
+console.log(converted);
+
+// { a: 1, b: true, c: 'Hello' }
+
 ```
 
 ## Documentation
