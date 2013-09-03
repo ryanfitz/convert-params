@@ -31,9 +31,13 @@
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-watch": "~0.4.0",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "joi": "~1.1.0"
   },
-  "keywords": [],
+  "keywords": [
+    "joi",
+    "query"
+  ],
   "dependencies": {
     "lodash": "~1.3.1"
   }

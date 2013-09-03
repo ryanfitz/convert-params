@@ -1,6 +1,7 @@
 'use strict';
 
-var convert_params = require('../lib/convert-params.js');
+var Joi = require('joi'),
+    convertParams = require('../index');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -27,10 +28,15 @@ exports['awesome'] = {
     // setup here
     done();
   },
-  'no args': function(test) {
-    test.expect(1);
-    // tests here
-    test.equal(convert_params.awesome(), 'awesome', 'should be awesome.');
+  'convert': function(test) {
+    var config = {
+      a: Joi.types.Number(),
+      b: Joi.types.Boolean(),
+      c: Joi.types.String()
+    };
+
+    var converted = convertParams({a: '1', b: 'true', c: 'Hello'}, config);
+    test.deepEqual(converted, {a: 1, b: true, c: 'Hello'});
     test.done();
   },
 };
